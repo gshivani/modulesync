@@ -5,8 +5,9 @@ module ModuleSync
   module Renderer
 
     class ForgeModuleFile
-      def initialize(configs= {})
+      def initialize(configs= {}, puppet_module)
         @configs = configs
+        @puppet_module = puppet_module
       end
     end
 
@@ -23,8 +24,8 @@ module ModuleSync
       end
     end
 
-    def self.render(template, configs = {})
-      ForgeModuleFile.new(configs).render()
+    def self.render(template, configs = {}, puppet_module)
+      ForgeModuleFile.new(configs, puppet_module).render()
     end
 
     def self.sync(template, to_file)
