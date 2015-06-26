@@ -73,7 +73,7 @@ module ModuleSync
             Renderer.remove(module_file(puppet_module, file))
           else
             erb = Renderer.build(local_file(options[:configs], file))
-            template = Renderer.render(erb, file_configs, puppet_module)
+            template = Renderer.render(erb, file_configs)
             Renderer.sync(template, "#{PROJ_ROOT}/#{puppet_module}/#{file}")
           end
         end
